@@ -147,7 +147,7 @@ router.post("/getToken", async (ctx, next) => {
 - 模拟10s后`accessToken`失效了
 - 模拟30s后`refreshToken`失效了
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/TZL4BdZpLdiaKBjnwq2Cj7pgzgqGXFnfK91s7ueSHXDLicLmyT6QFtPtFyVomPA7BsQ9PtQvAOCcPsMxYCrJeLUA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![640 (1)](C:\Users\Alex Mercer\Desktop\工作\640 (1).png)
 
 理想状态下，用户无感知的话，那么控制台应该会打印
 
@@ -166,7 +166,9 @@ test-4
 
 但是我们看到现状是，只打印了`test-1、test-2`
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/TZL4BdZpLdiaKBjnwq2Cj7pgzgqGXFnfKhXzQPiasnpsZRib47XaSIwcp5kyb6qmjWsMq5xaBsBjVjGlQZtwYNyIw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![640 (2)](C:\Users\Alex Mercer\Desktop\工作\640 (2).png)
+
+![640 (3)](C:\Users\Alex Mercer\Desktop\工作\640 (3).png)
 
 ## 接下来就实现**token无感知刷新**这个功能
 
@@ -192,17 +194,17 @@ test-4
 - **`onSuccess`**：获取新`accessToken`成功后的回调
 - **`onError`**：获取新`accessToken`失败后的回调
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/TZL4BdZpLdiaKBjnwq2Cj7pgzgqGXFnfKg8sjt5mGwVicp5EQzc3zoGa4icktQjOzv7ygYO75Jn4M9trD9gFqmWqg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![640 (4)](C:\Users\Alex Mercer\Desktop\工作\640 (4).png)
 
 使用示例如下
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/TZL4BdZpLdiaKBjnwq2Cj7pgzgqGXFnfKN2Yk8FvzfmdeiaA6dOdiceFlfmVA4dfo48lvO2sDF56HEuHTWajYsCZw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![640 (5)](C:\Users\Alex Mercer\Desktop\工作\640 (5).png)
 
 最后实现了最终效果，打印出了这四个文本
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/TZL4BdZpLdiaKBjnwq2Cj7pgzgqGXFnfKypLMkaLmN6WCicmqVl8fpFficV0XUWOJ3GE5tSOCZAxZ831ic6M8iaZ87g/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![640 (6)](C:\Users\Alex Mercer\Desktop\工作\640 (6).png)
 
-![图片](https://mmbiz.qpic.cn/mmbiz_png/TZL4BdZpLdiaKBjnwq2Cj7pgzgqGXFnfKrhPQIpd0H1KlYFiagP8xibQyoRDn9ibMFQm5vmcscS87nhg5brOCzb66A/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1)
+![640 (7)](C:\Users\Alex Mercer\Desktop\工作\640 (7).png)
 
 ## 前端代码
 
