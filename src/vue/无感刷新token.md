@@ -3,13 +3,13 @@ icon: pen-to-square
 date: 2023-10-30
 star: true
 category:
-  - 谎言不会伤人，真相才是快刀
+  - 无感刷新token
 tag:
   - Vue
-footer: This site is served by GitHub Pages
+footer: ''
 ---
 
-# 谎言不会伤人，真相才是快刀
+# 无感刷新token
 
 ## 标题 2
 

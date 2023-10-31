@@ -11,7 +11,7 @@ export default hopeTheme({
     name: "月岛",
     url: "https://mister-hope.com",
   },
-  iconAssets: "fontawesome-with-brands",
+  iconAssets: "iconfont",
   logo: "/logo.jpg",
   repo: "vuepress-theme-hope/vuepress-theme-hope",
   docsDir: "src",

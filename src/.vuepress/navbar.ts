@@ -25,7 +25,7 @@ export default navbar([
   {
     text: "分类",
     icon: "categoryselected",
-    link: "/category/前端/",
+    link: "/category/",
   },
   {
     text: "时间轴",
