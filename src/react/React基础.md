@@ -1,3 +1,17 @@
+---
+icon: pen-to-square
+date: 2022-11-18
+category:
+  - React
+tag:
+  - 基础
+  - 新手
+  - 入门
+star: true
+sticky: true
+article: true
+---
+
 # React介绍
 
 `目标任务:`  了解什么是React以及它的特点
@@ -10,15 +24,16 @@
 
 **React有什么特点**
 1- 声明式UI（JSX）
+
 > 写UI就和写普通的HTML一样，抛弃命令式的繁琐实现
 
-![compare.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654489480461-0cfa5cac-eb47-4629-8f11-a7ca1d8c0227.png#averageHue=%237f9039&clientId=u3ca1a750-0855-4&from=drop&id=u8fbcd3d7&originHeight=516&originWidth=1366&originalType=binary&ratio=1&rotation=0&showTitle=false&size=92391&status=done&style=none&taskId=u903fcd7d-4353-4c7d-a12c-623e834d986&title=)
+![01](C:\Users\Alex Mercer\Desktop\工作\01.png)
 
 2- 组件化
 
 > 组件是react中最重要的内容，组件可以通过搭积木的方式拼成一个完整的页面，通过组件的抽象可以增加复用能力和提高可维护性
 
-![image.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1659285398963-681a495b-1347-4a9f-bc62-1be28ed805eb.png#averageHue=%23ededed&clientId=u37f96dad-5817-4&from=paste&height=408&id=u1ed74113&originHeight=544&originWidth=1406&originalType=binary&ratio=1&rotation=0&showTitle=false&size=31533&status=done&style=none&taskId=u6a18cbb0-dd9b-4786-9718-7feaf425727&title=&width=1055)
+![02](C:\Users\Alex Mercer\Desktop\工作\02.png)
 3- 跨平台
 
 > react既可以开发web应用也可以使用同样的语法开发原生应用（react-native），比如安卓和ios应用，甚至可以使用react开发VR应用，想象力空间十足，react更像是一个 `元框架`  为各种领域赋能
@@ -29,7 +44,7 @@
 
 ## 1. 使用脚手架创建项目
 
-![create-react.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654489636650-803103c4-c5df-4034-b29a-30c800d6cb30.png#averageHue=%23303d4a&clientId=u3ca1a750-0855-4&from=drop&id=u0275d83d&originHeight=685&originWidth=1387&originalType=binary&ratio=1&rotation=0&showTitle=false&size=41743&status=done&style=none&taskId=u5547df9f-29dd-4567-a39e-bf0ded3e325&title=)
+![03](C:\Users\Alex Mercer\Desktop\工作\03.png)
 
 - 打开命令行窗口
 - 执行命令
@@ -92,7 +107,7 @@ ReactDOM.render(
 
 注意：JSX 并不是标准的 JS 语法，是 JS 的语法扩展，浏览器默认是不识别的，脚手架中内置的 [@babel/plugin-transform-react-jsx](@babel/plugin-transform-react-jsx) 包，用来解析该语法
 
-![jsx02.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654489661908-d354840e-78b8-43ad-a882-8129742c794e.png#averageHue=%23fbf6f5&clientId=u3ca1a750-0855-4&from=drop&id=u7c93ae9c&originHeight=1280&originWidth=2032&originalType=binary&ratio=1&rotation=0&showTitle=false&size=276789&status=done&style=none&taskId=ud7731ce8-38d6-40d0-877c-4d026124a6f&title=)
+![04](C:\Users\Alex Mercer\Desktop\工作\04.png)
 
 ## 2. JSX中使用js表达式
 
@@ -146,7 +161,7 @@ export default App
 ```
 
 注意点：需要为遍历项添加 `key` 属性
-![jsx03.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654489746660-d500357d-1e62-4016-a25f-d36594fdfead.png#averageHue=%23321011&clientId=u3ca1a750-0855-4&from=drop&id=u1dd4d571&originHeight=165&originWidth=1540&originalType=binary&ratio=1&rotation=0&showTitle=false&size=26391&status=done&style=none&taskId=u489fab30-8418-4a9e-833a-daecda16bef&title=)
+![05](C:\Users\Alex Mercer\Desktop\工作\05.png)
 
 1. key 在 HTML 结构中是看不到的，是 React 内部用来进行性能优化时使用
 2. key 在当前列表中要唯一的字符串或者数值（String/Number）
@@ -356,7 +371,7 @@ export default App
 
 ## 组件概念
 
-![components.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654489956815-0348d9cc-a001-4d76-a832-1bccc2f1fde4.png#averageHue=%23f0f0f0&clientId=u3ca1a750-0855-4&from=drop&id=u6894a63b&originHeight=544&originWidth=1406&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6202&status=done&style=none&taskId=u92300fe0-c7fb-4f17-93a5-76f3de50e9c&title=)
+![06](C:\Users\Alex Mercer\Desktop\工作\06.png)
 
 ## 函数组件
 
@@ -575,7 +590,7 @@ export default App
 `目标任务:`   能够为组件添加状态和修改状态的值
 > 一个前提：在React hook出来之前，函数式组件是没有自己的状态的，所以我们统一通过类组件来讲解
 
-![state-update.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490044831-869eaf7b-eeae-4a1d-b42f-02e64c0febea.png#averageHue=%23f3f3f3&clientId=u3ca1a750-0855-4&from=drop&id=ufed8c820&originHeight=420&originWidth=1667&originalType=binary&ratio=1&rotation=0&showTitle=false&size=90966&status=done&style=none&taskId=u847e44df-b1e6-4d5f-a11b-73dcbfcb94b&title=)
+![07](C:\Users\Alex Mercer\Desktop\工作\07.png)
 
 ### 1. 初始化状态
 
@@ -644,7 +659,7 @@ class Counter extends React.Component {
 
 ## this问题说明
 
-![this.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490096737-17caed54-acc7-47f3-a25f-4f293c5a0e62.png#averageHue=%23f6cd9c&clientId=u3ca1a750-0855-4&from=drop&id=uf40326e0&originHeight=266&originWidth=758&originalType=binary&ratio=1&rotation=0&showTitle=false&size=35959&status=done&style=none&taskId=u23ca5201-1487-4deb-89e1-525568a1b71&title=)
+![08](C:\Users\Alex Mercer\Desktop\工作\08.png)
 
 这里我们作为了解内容，随着js标准的发展，主流的写法已经变成了class fields，无需考虑太多this问题
 
@@ -820,7 +835,7 @@ export default App
 1. 类组件使用this.props获取props对象
 2. 函数式组件直接通过参数获取props对象
 
-![props-1.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490432739-ea283505-3ddd-4403-9fba-7735b04b451e.png#averageHue=%23272726&clientId=u3ca1a750-0855-4&from=drop&id=u949b8da5&originHeight=785&originWidth=1391&originalType=binary&ratio=1&rotation=0&showTitle=false&size=38400&status=done&style=none&taskId=u6ae5a78a-6515-4974-a440-0d8e915e299&title=)
+![09](C:\Users\Alex Mercer\Desktop\工作\09.png)
 
 **代码实现**
 
@@ -901,7 +916,7 @@ class App extends React.Component {
 }
 ```
 
-![props-2.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490465147-2322a19d-104f-438d-a017-2725073ec0d7.png#averageHue=%23fefcfb&clientId=u3ca1a750-0855-4&from=drop&id=uc7e969fd&originHeight=523&originWidth=1344&originalType=binary&ratio=1&rotation=0&showTitle=false&size=42114&status=done&style=none&taskId=u94dd2ab1-c24b-476c-8fdb-4c3b898da35&title=)
+![10](C:\Users\Alex Mercer\Desktop\工作\10.png)
 
 ## 子传父实现
 
@@ -916,7 +931,7 @@ class App extends React.Component {
 3. 子组件通过props调用 回调函数
 4. 将子组件中的数据作为参数传递给回调函数
 
-![props-4.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490502446-0596a169-847f-4446-91ce-a9a0237a9074.png#averageHue=%23282726&clientId=u3ca1a750-0855-4&from=drop&id=u10fa0be5&originHeight=775&originWidth=1406&originalType=binary&ratio=1&rotation=0&showTitle=false&size=44063&status=done&style=none&taskId=u5ce7774f-94dc-4cee-ad20-3a6d66f52ab&title=)
+![11](C:\Users\Alex Mercer\Desktop\工作\11.png)
 
 **代码实现**
 
@@ -972,7 +987,7 @@ export default App
 
 **核心思路：** 通过状态提升机制，利用共同的父组件实现兄弟通信
 
-![props-5.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490527043-7acbe144-a306-40af-a878-3a7f4ba3a599.png#averageHue=%23272625&clientId=u3ca1a750-0855-4&from=drop&id=uf56434ca&originHeight=752&originWidth=1372&originalType=binary&ratio=1&rotation=0&showTitle=false&size=36328&status=done&style=none&taskId=ufaefbea7-19ad-418f-86e1-b6cb50558c2&title=)
+![12](C:\Users\Alex Mercer\Desktop\工作\12.png)
 
 **实现步骤**
 
@@ -1037,7 +1052,7 @@ export default App
 ## 跨组件通信Context
 
 `目标任务:`   了解Context机制解决的问题和使用步骤
-![context.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490557423-1b93cabb-8bb8-4d6d-91f5-77c5cbddf105.png#averageHue=%23272726&clientId=u3ca1a750-0855-4&from=drop&id=uefadad84&originHeight=755&originWidth=1307&originalType=binary&ratio=1&rotation=0&showTitle=false&size=45820&status=done&style=none&taskId=uc1964082-41bd-4c7d-8c00-d3aa4ffd746&title=)
+![13](C:\Users\Alex Mercer\Desktop\工作\13.png)
 
 > 上图是一个react形成的嵌套组件树，如果我们想从App组件向任意一个下层组件传递数据，该怎么办呢？目前我们能采取的方式就是一层一层的props往下传，显然很繁琐
 > 那么，Context 提供了一个**无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法**
@@ -1130,7 +1145,7 @@ export default App
 
 > 对于组件来说，props是由外部传入的，我们其实无法保证组件使用者传入了什么格式的数据，如果传入的数据格式不对，就有可能会导致组件内部错误，有一个点很关键 - **组件的使用者可能报错了也不知道为什么**，看下面的例子
 
-![props-rule.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490657216-2a1d863f-3a6b-41fc-be38-7bc5fb781351.png#averageHue=%2315181a&clientId=u3ca1a750-0855-4&from=drop&id=ucdcb9eee&originHeight=524&originWidth=1274&originalType=binary&ratio=1&rotation=0&showTitle=false&size=59703&status=done&style=none&taskId=u8e05d9a1-22b8-43d1-910a-bf451d4aa42&title=)
+![14](C:\Users\Alex Mercer\Desktop\工作\14.png)
 面对这样的问题，如何解决？ **props校验**
 
 **实现步骤**
@@ -1229,7 +1244,7 @@ class List extends Component {
 `目标任务:`  能够说出组件生命周期一共几个阶段
 > 组件的生命周期是指组件从被创建到挂载到页面中运行起来，再到组件不用时卸载的过程，注意，只有类组件才有生命周期（类组件 实例化  函数组件 不需要实例化）
 
-![life.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490712545-6bd28fa7-290b-48fb-8d51-bbf5578dad3f.png#averageHue=%23f9f8f5&clientId=u3ca1a750-0855-4&from=drop&id=uad721788&originHeight=420&originWidth=1109&originalType=binary&ratio=1&rotation=0&showTitle=false&size=42563&status=done&style=none&taskId=u442cdb76-f464-4b17-a26b-e4462c501d7&title=)
+![15](C:\Users\Alex Mercer\Desktop\工作\15.png)
 
 [http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
@@ -1237,7 +1252,7 @@ class List extends Component {
 
 `目标任务:`  能够说出在组件挂载阶段执行的钩子函数和执行时机
 
-![life1.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490729034-d2d80cce-7fab-4dd8-bcbc-29e33bdffb63.png#averageHue=%23292928&clientId=u3ca1a750-0855-4&from=drop&id=u5060710c&originHeight=320&originWidth=1342&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12812&status=done&style=none&taskId=u930de835-d57a-4e69-ba5a-fc8ff247f9e&title=)
+![16](C:\Users\Alex Mercer\Desktop\工作\16.png)
 
 | 钩子 函数 | 触发时机 | 作用 |
 | --- | --- | --- |
@@ -1249,7 +1264,7 @@ class List extends Component {
 
 `目标任务:`  能够说出组件的更新阶段的钩子函数以及执行时机
 
-![life2.png](https://cdn.nlark.com/yuque/0/2022/png/274425/1654490742583-b933202d-3de7-41ae-b9ba-75ae1d2af34c.png#averageHue=%23282828&clientId=u3ca1a750-0855-4&from=drop&id=u16a98d25&originHeight=261&originWidth=1331&originalType=binary&ratio=1&rotation=0&showTitle=false&size=10692&status=done&style=none&taskId=u62f8fb7c-1679-4410-91e8-2652e06036c&title=)
+![17](C:\Users\Alex Mercer\Desktop\工作\17.png)
 
 | 钩子函数 | 触发时机 | 作用 |
 | --- | --- | --- |
