@@ -27,13 +27,13 @@ article: true
 
 > 写UI就和写普通的HTML一样，抛弃命令式的繁琐实现
 
-![01](C:\Users\Alex Mercer\Desktop\工作\01.png)
+![01](/image/01.png)
 
 2- 组件化
 
 > 组件是react中最重要的内容，组件可以通过搭积木的方式拼成一个完整的页面，通过组件的抽象可以增加复用能力和提高可维护性
 
-![02](C:\Users\Alex Mercer\Desktop\工作\02.png)
+![02](/image/02.png)
 3- 跨平台
 
 > react既可以开发web应用也可以使用同样的语法开发原生应用（react-native），比如安卓和ios应用，甚至可以使用react开发VR应用，想象力空间十足，react更像是一个 `元框架`  为各种领域赋能
@@ -44,7 +44,7 @@ article: true
 
 ## 1. 使用脚手架创建项目
 
-![03](C:\Users\Alex Mercer\Desktop\工作\03.png)
+![03](/image/03.png)
 
 - 打开命令行窗口
 - 执行命令
@@ -107,7 +107,7 @@ ReactDOM.render(
 
 注意：JSX 并不是标准的 JS 语法，是 JS 的语法扩展，浏览器默认是不识别的，脚手架中内置的 [@babel/plugin-transform-react-jsx](@babel/plugin-transform-react-jsx) 包，用来解析该语法
 
-![04](C:\Users\Alex Mercer\Desktop\工作\04.png)
+![04](/image/04.png)
 
 ## 2. JSX中使用js表达式
 
@@ -161,7 +161,7 @@ export default App
 ```
 
 注意点：需要为遍历项添加 `key` 属性
-![05](C:\Users\Alex Mercer\Desktop\工作\05.png)
+![05](/image/05.png)
 
 1. key 在 HTML 结构中是看不到的，是 React 内部用来进行性能优化时使用
 2. key 在当前列表中要唯一的字符串或者数值（String/Number）
@@ -371,7 +371,7 @@ export default App
 
 ## 组件概念
 
-![06](C:\Users\Alex Mercer\Desktop\工作\06.png)
+![06](/image/06.png)
 
 ## 函数组件
 
@@ -590,7 +590,7 @@ export default App
 `目标任务:`   能够为组件添加状态和修改状态的值
 > 一个前提：在React hook出来之前，函数式组件是没有自己的状态的，所以我们统一通过类组件来讲解
 
-![07](C:\Users\Alex Mercer\Desktop\工作\07.png)
+![07](/image/07.png)
 
 ### 1. 初始化状态
 
@@ -659,7 +659,7 @@ class Counter extends React.Component {
 
 ## this问题说明
 
-![08](C:\Users\Alex Mercer\Desktop\工作\08.png)
+![08](/image/08.png)
 
 这里我们作为了解内容，随着js标准的发展，主流的写法已经变成了class fields，无需考虑太多this问题
 
@@ -835,7 +835,7 @@ export default App
 1. 类组件使用this.props获取props对象
 2. 函数式组件直接通过参数获取props对象
 
-![09](C:\Users\Alex Mercer\Desktop\工作\09.png)
+![09](/image/09.png)
 
 **代码实现**
 
@@ -916,7 +916,7 @@ class App extends React.Component {
 }
 ```
 
-![10](C:\Users\Alex Mercer\Desktop\工作\10.png)
+![10](/image/10.png)
 
 ## 子传父实现
 
@@ -931,7 +931,7 @@ class App extends React.Component {
 3. 子组件通过props调用 回调函数
 4. 将子组件中的数据作为参数传递给回调函数
 
-![11](C:\Users\Alex Mercer\Desktop\工作\11.png)
+![11](/image/11.png)
 
 **代码实现**
 
@@ -987,7 +987,7 @@ export default App
 
 **核心思路：** 通过状态提升机制，利用共同的父组件实现兄弟通信
 
-![12](C:\Users\Alex Mercer\Desktop\工作\12.png)
+![12](/image/12.png)
 
 **实现步骤**
 
@@ -1052,7 +1052,7 @@ export default App
 ## 跨组件通信Context
 
 `目标任务:`   了解Context机制解决的问题和使用步骤
-![13](C:\Users\Alex Mercer\Desktop\工作\13.png)
+![13](/image/13.png)
 
 > 上图是一个react形成的嵌套组件树，如果我们想从App组件向任意一个下层组件传递数据，该怎么办呢？目前我们能采取的方式就是一层一层的props往下传，显然很繁琐
 > 那么，Context 提供了一个**无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法**
@@ -1145,7 +1145,7 @@ export default App
 
 > 对于组件来说，props是由外部传入的，我们其实无法保证组件使用者传入了什么格式的数据，如果传入的数据格式不对，就有可能会导致组件内部错误，有一个点很关键 - **组件的使用者可能报错了也不知道为什么**，看下面的例子
 
-![14](C:\Users\Alex Mercer\Desktop\工作\14.png)
+![14](/image/14.png)
 面对这样的问题，如何解决？ **props校验**
 
 **实现步骤**
@@ -1244,7 +1244,7 @@ class List extends Component {
 `目标任务:`  能够说出组件生命周期一共几个阶段
 > 组件的生命周期是指组件从被创建到挂载到页面中运行起来，再到组件不用时卸载的过程，注意，只有类组件才有生命周期（类组件 实例化  函数组件 不需要实例化）
 
-![15](C:\Users\Alex Mercer\Desktop\工作\15.png)
+![15](/image/15.png)
 
 [http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
@@ -1252,7 +1252,7 @@ class List extends Component {
 
 `目标任务:`  能够说出在组件挂载阶段执行的钩子函数和执行时机
 
-![16](C:\Users\Alex Mercer\Desktop\工作\16.png)
+![16](/image/16.png)
 
 | 钩子 函数 | 触发时机 | 作用 |
 | --- | --- | --- |
@@ -1264,7 +1264,7 @@ class List extends Component {
 
 `目标任务:`  能够说出组件的更新阶段的钩子函数以及执行时机
 
-![17](C:\Users\Alex Mercer\Desktop\工作\17.png)
+![17](/image/17.png)
 
 | 钩子函数 | 触发时机 | 作用 |
 | --- | --- | --- |
