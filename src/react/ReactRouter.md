@@ -1,6 +1,6 @@
 ---
 icon: pen-to-square
-date: 2022-11-18
+date: 2022-10-18
 category:
   - ReactRouter介绍
 tag:
@@ -111,7 +111,7 @@ export default App
 
 ## 2. Link
 >
-> 作用: 用于指定导航链接，完成声明式的路由跳转  类似于 <router-link/>
+> 作用: 用于指定导航链接，完成声明式的路由跳转  类似于 `<router-link/>`
 
 ![image.png](./image/Router02.png)
 这里to属性用于指定路由地址，表示要跳转到哪里去，Link组件最终会被渲染为原生的a链接
