@@ -21,11 +21,10 @@ export default hopeTheme({
   displayFooter: true,
   blog: {
     description: "我宁愿犯错也不愿什么都不做。",
-    intro: "/intro.html",
+    intro: "/",
     medias: {
-      Gitee: "https://example.com",
-      GitHub: "https://example.com",
-      Gitlab: "https://example.com",
+      Gitee: "https://gitee.com/novaDJ",
+      GitHub: "https://studentdj.github.io",
     },
   },
   encrypt: {
