@@ -27,7 +27,7 @@ article: true
 
 > 写UI就和写普通的HTML一样，抛弃命令式的繁琐实现
 
-![01](/src/react/image/01.png)
+![01](/assets/images/react01.png)
 
 2- 组件化
 
