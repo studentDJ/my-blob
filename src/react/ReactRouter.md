@@ -2,7 +2,7 @@
 icon: pen-to-square
 date: 2022-10-18
 category:
-  - ReactRouter介绍
+  - ReactRouter
 tag:
   - 基础
   - Router
