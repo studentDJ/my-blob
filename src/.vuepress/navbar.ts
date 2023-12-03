@@ -23,7 +23,7 @@ export default navbar([
     link: "/posts/",
   },
   {
-    text: "分类",
+    text: "后端",
     icon: "categoryselected",
     link: "/category/",
   },
