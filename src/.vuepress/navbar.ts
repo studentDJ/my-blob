@@ -24,7 +24,7 @@ export default navbar([
   },
   {
     text: "后端",
-    icon: "categoryselected",
+    icon: "Java",
     link: "/category/",
   },
   {

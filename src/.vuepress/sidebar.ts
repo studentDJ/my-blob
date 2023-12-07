@@ -22,6 +22,12 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "后端",
+      icon: "Java",
+      prefix: "category/",
+      children: "structure",
+    },
+    {
       text: "杂谈",
       icon: "study",
       prefix: "posts/",
