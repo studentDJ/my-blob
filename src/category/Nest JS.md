@@ -1215,3 +1215,223 @@ import { HttpFilter } from "./common/filter";
 
 app.useGlobalFilters(new HttpFilter());
 ```
+
+##13、nestjs 管道转换
+
+![13](./images/13.1.png)
+
+管道 可以做两件事
+
+1.转换，可以将前端传入的数据转成成我们需要的数据
+
+2.验证 类似于前端的rules 配置验证规则
+
+我们先来讲一下转换 Nestjs 提供了八个内置转换API
+
+- ValidationPipe
+- ParseIntPipe
+- ParseFloatPipe
+- ParseBoolPipe
+- ParseArrayPipe
+- ParseUUIDPipe
+- ParseEnumPipe
+- DefaultValuePipe
+
+#### 案例1 我们接受的动态参数希望是一个number 类型 现在是string 
+
+![02](./images/13.2.png)
+
+![03](./images/13.3.png)
+
+这时候就可以通过内置的管道 去做转换
+
+![04](./images/13.4.png)
+
+```typescript
+ @Get(':id')
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    console.log(typeof id); // number
+    return this.pService.findOne(+id);
+  }
+
+```
+
+#### 案例2 验证UUID
+
+安装uuid
+
+npm install uuid -S
+
+npm install @types/uuid -D
+
+生成一个uuid
+
+![05](./images/13.5.png)
+
+##14、nestjs 管道验证DTO
+
+###1.先创建一个pipe 验证管道
+
+`nest g pi 文件名字`
+
+```typescript
+import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common';
+
+@Injectable()
+export class LoginPipe implements PipeTransform {
+  transform(value: any, metadata: ArgumentMetadata) {
+    console.log(value, metadata); 
+    //{ name: '张三' } { metatype: [class CreateLoginDto], type: 'body', data:undefined } 
+    return value;
+  }
+}
+```
+
+###2.安装验证器
+
+```js
+npm i --save class-validator class-transformer
+```
+
+```typescript
+// create-login.dto.ts
+
+import {IsNotEmpty,IsString} from 'class-validator'
+export class CreatePDto {
+    @IsNotEmpty()//验证是否为空
+    @IsString() //是否为字符串
+    name:string;
+ 
+    @IsNotEmpty()
+    age:number
+}
+```
+
+###3.controller 使用管道 和定义类型
+
+![01](./images/14.1.png)
+
+###4.实现验证transform
+
+![02](./images/14.2.png)
+
+![03](./images/14.3.png)
+
+![04](./images/14.4.png)
+
+```typescript
+// login.pipe.ts
+import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common';
+import { plainToInstance } from 'class-transformer';
+import { validate } from 'class-validator';
+
+@Injectable()
+export class LoginPipe implements PipeTransform {
+  async transform(value: any, metadata: ArgumentMetadata) {
+    const DTO = plainToInstance(metadata.metatype, value);
+    console.log(DTO); //CreateLoginDto { name: '123' }
+    const error = await validate(DTO);
+    console.log(error); 
+    // [ValidationError {
+    //    target: CreateLoginDto { name: '123' },
+    //    value: '123',
+    //    property: 'name',
+    //    children: [],
+    //    constraints: { isLength: '长度为5-10位' }
+    //  }
+    // ]
+      if (error.length > 0) {
+          throw new HttpException(error, HttpStatus.BAD_REQUEST);
+      }
+    return value;
+  }
+}
+```
+
+###5.注册全局DTO验证管道 
+
+```typescript
+// main.ts
+
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+// 配置静态访问的路由
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
+// 引入响应拦截器
+import { Response } from './common/response';
+// 引入异常拦截器
+import { HttpFilter } from './common/filter';
+// 引入全局验证
+import { ValidationPipe } from '@nestjs/common';
+
+async function bootstrap() {
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  // 注册全局响应拦截器
+  app.useGlobalInterceptors(new Response());
+  // 注册全局异常过滤器
+  app.useGlobalFilters(new HttpFilter());
+  app.useStaticAssets(join(__dirname, 'images'), {
+    prefix: '/images',
+  });
+    
+    
+  app.useGlobalPipes(new ValidationPipe());
+    
+    
+  await app.listen(3000);
+}
+bootstrap();
+
+```
+
+##15、nestjs 爬虫
+
+其实爬虫是一个对计算机综合能力要求比较高的技术活。
+
+首先是要对网络协议尤其是 http 协议有基本的了解, 能够分析网站的数据请求响应。学会使用一些工具，简单的情况使用 chrome devtools 的 network 面板就够了
+
+- cheerio: 是jquery核心功能的一个快速灵活而又简洁的实现，主要是为了用在服务器端需要对DOM进行操作的地方，让你在服务器端和html愉快的玩耍。
+- axios  网络请求库可以发送http请求
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import axios from 'axios';
+import * as cheerio from 'cheerio';
+import * as fs from 'fs';
+import * as path from 'path';
+
+@Injectable()
+export class SpiderService {
+  async findAll() {
+    const urlList: any = [];
+    const getCosPlay = async () => {
+      const body = await axios
+        .get('https://www.yeitu.com/dongman/cosplay/20160416_10878.html')
+        .then((res) => res.data);
+      const $ = cheerio.load(body);
+      $('.article-body a img').each(function () {
+        urlList.push($(this).attr('src'));
+      });
+    };
+    await getCosPlay();
+    console.log(urlList);
+    this.writeFile(urlList);
+    return 'cos';
+  }
+  // 写入本地
+  writeFile(urls: string[]) {
+    urls.forEach(async (url) => {
+      const buffer = await axios
+        .get(url, { responseType: 'arraybuffer' })
+        .then((res) => res.data);
+      const ws = fs.createWriteStream(
+        path.join(__dirname, '../images/cos' + new Date().getTime() + '.jpg'),
+      );
+      ws.write(buffer);
+    });
+  }
+}
+
+```
+
