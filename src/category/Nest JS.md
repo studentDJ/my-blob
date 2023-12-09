@@ -1216,7 +1216,7 @@ import { HttpFilter } from "./common/filter";
 app.useGlobalFilters(new HttpFilter());
 ```
 
-##13、nestjs 管道转换
+## 13、nestjs 管道转换
 
 ![13](./images/13.1.png)
 
@@ -1237,7 +1237,7 @@ app.useGlobalFilters(new HttpFilter());
 - ParseEnumPipe
 - DefaultValuePipe
 
-#### 案例1 我们接受的动态参数希望是一个number 类型 现在是string 
+### 案例1 我们接受的动态参数希望是一个number 类型 现在是string 
 
 ![02](./images/13.2.png)
 
@@ -1256,7 +1256,7 @@ app.useGlobalFilters(new HttpFilter());
 
 ```
 
-#### 案例2 验证UUID
+### 案例2 验证UUID
 
 安装uuid
 
@@ -1268,9 +1268,9 @@ npm install @types/uuid -D
 
 ![05](./images/13.5.png)
 
-##14、nestjs 管道验证DTO
+## 14、nestjs 管道验证DTO
 
-###1.先创建一个pipe 验证管道
+### 1.先创建一个pipe 验证管道
 
 `nest g pi 文件名字`
 
@@ -1287,7 +1287,7 @@ export class LoginPipe implements PipeTransform {
 }
 ```
 
-###2.安装验证器
+### 2.安装验证器
 
 ```js
 npm i --save class-validator class-transformer
@@ -1307,11 +1307,11 @@ export class CreatePDto {
 }
 ```
 
-###3.controller 使用管道 和定义类型
+### 3.controller 使用管道 和定义类型
 
 ![01](./images/14.1.png)
 
-###4.实现验证transform
+### 4.实现验证transform
 
 ![02](./images/14.2.png)
 
@@ -1348,7 +1348,7 @@ export class LoginPipe implements PipeTransform {
 }
 ```
 
-###5.注册全局DTO验证管道 
+### 5.注册全局DTO验证管道 
 
 ```typescript
 // main.ts
@@ -1385,7 +1385,7 @@ bootstrap();
 
 ```
 
-##15、nestjs 爬虫
+## 15、nestjs 爬虫
 
 其实爬虫是一个对计算机综合能力要求比较高的技术活。
 
@@ -1434,4 +1434,3 @@ export class SpiderService {
 }
 
 ```
-
