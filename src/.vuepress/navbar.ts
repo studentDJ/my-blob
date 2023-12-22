@@ -3,24 +3,14 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   "/",
   {
-    text: "React系列",
+    text: "前端",
     icon: "react",
-    link: "/react/",
-  },
-  {
-    text: "Vue系列",
-    icon: "vue",
-    link: "/vue/",
+    link: "/JavaScript/",
   },
   {
     text: "Vite系列",
     icon: "tool",
     link: "/vite/",
-  },
-  {
-    text: "杂谈",
-    icon: "article",
-    link: "/posts/",
   },
   {
     text: "后端",
