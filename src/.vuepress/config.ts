@@ -5,11 +5,11 @@ export default defineUserConfig({
   base: "/my-blob/",
 
   lang: "zh-CN",
-  title: "博客演示",
-  description: "vuepress-theme-hope 的博客演示",
+  title: "月岛",
+  description: "月岛的博客演示",
 
   theme,
 
-  // 和 PWA 一起启用
+  // Enable it with pwa
   // shouldPrefetch: false,
 });

@@ -7,7 +7,7 @@ heroImage: /logo.jpg
 heroText: 月岛
 heroFullScreen: true
 tagline: 天下万般兵刃，唯有过往伤人最深
-bgImage: /assets/images/homeBg.jpg
+bgImage: /background.webp
 bgImageStyle:
   {
     width: "100%",
