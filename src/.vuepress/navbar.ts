@@ -27,7 +27,7 @@ export default navbar([
         text: "Java",
         icon: "Java",
         prefix: "Java/",
-        children: [{ text: "JavaSE", icon: "Java", link: "JavaSE" }],
+        children: [{ text: "JavaSE", icon: "Java", link: "JavaSE/Java基础" }],
       },
       {
         text: "Nest",
