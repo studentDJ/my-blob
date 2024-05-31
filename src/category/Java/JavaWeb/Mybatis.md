@@ -10,7 +10,9 @@ star: true
 
 # Mybatis入门
 
-## 前言
+## Mybatis入门
+
+### 前言
 
 在前面我们学习MySQL数据库时，都是利用图形化客户端工具(如：idea、datagrip)，来操作数据库的。
 
@@ -56,13 +58,13 @@ Mybatis课程安排：
 
 
 
-## 1. 快速入门
+### 1. 快速入门
 
 需求：使用Mybatis查询所有用户数据。
 
 
 
-### 1.1 入门程序分析
+#### 1.1 入门程序分析
 
 以前我们是在图形化客户端工具中编写SQL查询代码，发送给数据库执行，数据库执行后返回操作结果。
 
@@ -100,11 +102,11 @@ Mybatis操作数据库的步骤：
 
 
 
-### 1.2 入门程序实现
+#### 1.2 入门程序实现
 
-#### 1.2.1 准备工作
+##### 1.2.1 准备工作
 
-##### 1.2.1.1 创建springboot工程
+###### 1.2.1.1 创建springboot工程
 
 创建springboot工程，并导入 mybatis的起步依赖、mysql的驱动包。
 
@@ -306,7 +308,7 @@ public class MybatisQuickstartApplicationTests {
 
 
 
-### 1.3 解决SQL警告与提示
+#### 1.3 解决SQL警告与提示
 
 默认我们在UserMapper接口上加的@Select注解中编写SQL语句是没有提示的。 如果想让idea给我们提示对应的SQL语句，我们需要在IDEA中配置与MySQL数据库的链接。 
 
@@ -334,9 +336,9 @@ public class MybatisQuickstartApplicationTests {
 
 
 
-## 2. JDBC介绍(了解)
+### 2. JDBC介绍(了解)
 
-### 2.1 介绍
+#### 2.1 介绍
 
 通过Mybatis的快速入门，我们明白了，通过Mybatis可以很方便的进行数据库的访问操作。但是大家要明白，其实java语言操作数据库呢，只能通过一种方式：使用sun公司提供的 JDBC 规范。
 
@@ -360,7 +362,7 @@ JDBC： ( Java DataBase Connectivity )，就是使用Java语言操作关系型�
 
 
 
-### 2.2 代码
+#### 2.2 代码
 
 下面我们看看原始的JDBC程序是如何操作数据库的。操作步骤如下：
 
@@ -451,7 +453,7 @@ public class JdbcTest {
 
 
 
-### 2.3 问题分析
+#### 2.3 问题分析
 
 原始的JDBC程序，存在以下几点问题：
 
@@ -463,7 +465,7 @@ public class JdbcTest {
 
 
 
-### 2.4 技术对比
+#### 2.4 技术对比
 
 分析了JDBC的缺点之后，我们再来看一下在mybatis中，是如何解决这些问题的：
 
@@ -508,13 +510,13 @@ public class JdbcTest {
 
 
 
-## 3. 数据库连接池
+### 3. 数据库连接池
 
 在前面我们所讲解的mybatis中，使用了数据库连接池技术，避免频繁的创建连接、销毁连接而带来的资源浪费。
 
 下面我们就具体的了解下数据库连接池。
 
-### 3.1 介绍
+#### 3.1 介绍
 
 ![image-20221210160341852](./MyBatisImages/image-20221210160341852.png)
 
@@ -546,7 +548,7 @@ public class JdbcTest {
 
 
 
-### 3.2 产品
+#### 3.2 产品
 
 要怎么样实现数据库连接池呢？
 
@@ -624,9 +626,9 @@ spring.datasource.password=1234
 
 
 
-## 4. lombok
+### 4. lombok
 
-### 4.1 介绍
+#### 4.1 介绍
 
 Lombok是一个实用的Java类库，可以通过简单的注解来简化和消除一些必须有但显得很臃肿的Java代码。
 
@@ -645,7 +647,7 @@ Lombok是一个实用的Java类库，可以通过简单的注解来简化和消�
 
 
 
-### 4.2 使用
+#### 4.2 使用
 
 第1步：在pom.xml文件中引入依赖
 
@@ -701,4 +703,173 @@ Lombok的注意事项：
 - 在使用lombok时，还需要安装一个lombok的插件（新版本的IDEA中自带）
 
 ![image-20221210165506359](./MyBatisImages/image-20221210165506359.png)
+
+## Mybatis基础操作
+
+### 删除
+
+![删除](./MyBatisImages/删除.png)
+
+### 预编译SQL
+
+> - 性能更高
+> - 更安全（防止SQL注入）
+
+![预编译SQL（性能更高）](./MyBatisImages/预编译SQL（性能更高）.png)
+
+> SQL注入
+>
+> - SQL注入是通过操作输入的数据来修改事先定义好的SQL语句，以达到执行代码对服务器进行攻击的方法。
+
+### 插入
+
+![新增（主键返回）](./MyBatisImages/新增（主键返回）.png)
+
+```sql
+ // 新增数据
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @Insert("insert into emp(username, name, gender, image, job, entrydate, dept_id, create_time, update_time) " +
+            "values (#{username}, #{name}, #{gender}, #{image}, #{job}, #{entrydate}, #{deptId}, #{createTime}, #{updateTime})")
+    public void insert(Emp emp);
+```
+
+### 更新
+
+```sql
+ // 修改数据
+    @Update("update emp set username = #{username}, name = #{name}, gender = #{gender}, image = #{image}, job = #{job}, " +
+            "entrydate = #{entrydate}, dept_id = #{deptId}, update_time = #{updateTime} where id = #{id}")
+    public void update(Emp emp);
+```
+
+### 查询
+
+![查询](./MyBatisImages/查询.png)
+
+#### 数据封装
+
+![数据封装](./MyBatisImages/数据封装.png)
+
+```java
+// 解决方案一
+@Select("select id, username, password, name, gender, image, job, " +
+"entrydate, dept_id deptId, create_time createTime, update_time updateTime from emp where id = #{id}")
+public Emp selectEmpById(Integer id);
+
+// 解决方案二
+@Results({
+    @Result(property = "deptId", column = "dept_id"),
+    @Result(property = "createTime", column = "create_time"),
+    @Result(property = "updateTime", column = "update_time"),
+})
+@Select("select * from emp where id = #{id}")
+public Emp selectEmpById(Integer id);
+
+// 解决方案三   application.properties文件中设置
+mybatis.configuration.map-underscore-to-camel-case=true
+```
+
+#### 条件查询
+
+![查询（条件查询）](./MyBatisImages/查询（条件查询）.png)
+
+```java
+// 模糊查询员工
+@Select("select * from emp where name like '%${name}%' and gender = #{gender} and " +
+        "entrydate between #{start} and #{end} order by update_time desc ")
+public List<Emp> list(String name, short gender, LocalDate start,LocalDate end);
+
+@Select("select * from emp where name like concat('%',#{name},'%') and gender = #{gender} and " +
+        "entrydate between #{start} and #{end} order by update_time desc ")
+
+```
+
+## XML映射文件
+
+> 规范
+>
+> - XML映射文件的名称与Mapper接口名称一致，并且将XML映射文件和Mapper接口放置在相同包下(同包同名)
+> - XML映射文件的namespace属性为Mapper接口全限定名一致。
+> - XML映射文件中sql语句的id与Mapper 接口中的方法名一致，并保持返回类型一致
+
+![XML映射文件规范](./MyBatisImages/XML映射文件规范.png)
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.EmpMapper">
+    <select id="list" resultType="com.itheima.pojo.Emp">
+        select *
+        from emp
+        where name like concat('%', #{name}, '%')
+          and gender = #{gender}
+          and entrydate between #{start} and #{end}
+        order by update_time desc
+    </select>
+</mapper>
+```
+
+## Mybatis动态SQL
+
+> 随着用户的输入或外部条件的变化而变化的SQL语句，我们称为 动态SQL。
+
+![动态SQL](./MyBatisImages/动态SQL.png)
+
+### if
+
+>1、`<if>`
+>
+>- 用于判断条件是否成立，如果条件为true，则拼接SQL。
+>- 形式：` <if test="name != null and name != ''">...</if>`
+>
+>2、`<where>`
+>
+>- where 元素只会在子元素有内容的情况下才插入where子句，而且会自动去除子句的开头的AND 或OR
+>
+>3、`<set>`
+>
+>- 动态地在行首插入 SET 关键字，并会删掉额外的逗号。(用在update语句中)
+
+
+
+```sql
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.EmpMapper">
+    <select id="list" resultType="com.itheima.pojo.Emp">
+        select *
+        from emp
+        <where>
+            <if test="name != null and name != ''">
+                name like concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+            <if test="start != null and end != null">
+                and entrydate between #{start} and #{end}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+</mapper>
+```
+
+### foreach
+
+![XML映射（foreach）](./MyBatisImages/XML映射（foreach）.png)
+
+### sql include
+
+![XML映射（sql include）](./MyBatisImages/XML映射（sql include）.png)
+
+
+
+
+
+
 
